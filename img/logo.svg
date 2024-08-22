@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1080">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #62806a;
+        stroke-width: 0px;
+      }
+
+      .cls-2 {
+        fill: #fff;
+        stroke-width: 7.5px;
+      }
+
+      .cls-2, .cls-3 {
+        stroke: #fff;
+        stroke-miterlimit: 10;
+      }
+
+      .cls-3 {
+        fill: none;
+        stroke-width: 30px;
+      }
+    </style>
+  </defs>
+  <g id="Logo_v2" data-name="Logo v2">
+    <g>
+      <rect id="Background" class="cls-1" width="1080" height="1080"/>
+      <g id="Briefcase">
+        <path class="cls-2" d="M851.88,327.3H228.12c-46.71,0-84.58,37.99-84.58,84.86v11.12h335.55c5.58,0,10.93,2.22,14.88,6.16l56.96,56.57h-130.46l13.31,63.25c2.05,9.74,10.64,16.71,20.59,16.71h176.51l125.75,126.15c26.51,26.51,7.73,71.84-29.76,71.84H143.55v8.86c0,46.87,37.87,84.86,84.58,84.86h623.75c46.71,0,84.58-37.99,84.58-84.86v-360.65c0-46.87-37.87-84.86-84.58-84.86Z"/>
+        <path id="Handle" class="cls-3" d="M656.29,289.31c0-31.65-18.65-57.31-41.66-57.31h-152.19c-23.01,0-41.66,25.66-41.66,57.31v40.13h235.52v-40.13Z"/>
+      </g>
+    </g>
+  </g>
+</svg>

@@ -13,7 +13,7 @@
     <body>
 
         <header>
-            <img src="./img/icons/icon-128x128.png" alt="TrainWork Logo" id="logo">
+            <img src="./img/logo.svg" alt="TrainWork Logo" id="logo">
         </header>
         <main>
             <h1>Plane deine Produktivitätsreise</h1>
@@ -30,7 +30,8 @@
             </form>
         </main>
         <footer>
-            <p>&copy; 2020 TrainWork</p>
+            <p>Created by Jasper Bleeker and Siro Rudolf</p>
+            <p>&copy;<span id="copyYear"></span> TrainWork</p>
         </footer>
 
         <div id="downloadModal" class="modal">
@@ -40,6 +41,12 @@
             </div>
         </div>
 
+        <script>
+            let copyYear = document.querySelector("#copyYear");
+            let date = new Date();
+            copyYear.textContent = date.getFullYear();
+        
+        </script>
         <script src="./js/modal_mechanic.js"></script>
         <script src="./js/app.js" async></script>
     </body>
