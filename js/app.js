@@ -25,6 +25,7 @@ if (isMobile() && !isStandalone) {
     console.log("Open Modal");
     var modal = document.getElementById("downloadModal");
     modal.style.display = "block";
+
 } else {
     console.log("No Modal needed");
 }
