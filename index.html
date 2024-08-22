@@ -24,10 +24,12 @@
                 <img src="./img/arrow.svg" alt="Verbindungsicon zwischen Abfahrt und Ankunft" id="arrow">
                 <label for="destination">Zielort</label>
                 <input type="text" name="destination" id="destination">
-                <label for="departureTime">Abfahrtszeit</label>
-                <input type="datetime-local" name="departureTime" id="departureTime">
-                <label for="arrivalTime">Ankunftszeit</label>
-                <input type="datetime-local" name="arrivalTime" id="arrivalTime">
+                <div id="timeWrapper">
+                    <label for="departureTime">Abfahrtszeit</label>
+                    <input type="datetime-local" name="departureTime" id="departureTime">
+                    <label for="arrivalTime">Ankunftszeit</label>
+                    <input type="datetime-local" name="arrivalTime" id="arrivalTime">
+                </div>
                 <button type="submit">Reise suchen</button>
             </form>
         </main>
@@ -39,13 +41,16 @@
         <div id="downloadModal" class="modal">
             <div class="modal-content">
                 <span class="close">&times;</span>
-                <p>Please Download me!</p>
+                <p>Lade unsere App herunter!</p>
 
+                <div id="appleDownload">
 
+                </div>
+
+                <button id="installButton" style="display:none;">Jetzt Herunterladen</button>
             </div>
         </div>
 
-        <button id="installButton" style="display:none;">Install App Now</button>
         <script>
             let copyYear = document.querySelector("#copyYear");
             let date = new Date();
