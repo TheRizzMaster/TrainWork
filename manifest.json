@@ -44,11 +44,5 @@
             "form_factor": "wide",
             "label": "Desktop of Awesome App"
         }
-    ],
-    "protocol_handlers": [
-    {
-      "protocol": "web+trainwork",
-      "url": "/route.html?id=%s"
-    }
     ]
   }
