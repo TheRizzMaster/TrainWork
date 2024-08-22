@@ -7,25 +7,6 @@ if ("serviceWorker" in navigator) {
     })
 }
 
-// Register the protocol handlers when the app loads
-window.addEventListener('load', () => {
-    // Check if the browser supports protocol handlers
-    if ('registerProtocolHandler' in navigator) {
-
-        // Register a custom protocol (e.g., web+trainwork)
-        navigator.registerProtocolHandler(
-            'web+trainwork',  // Custom protocol
-            '/route.html?id=%s',  // URL pattern where %s is replaced by the data
-            'TrainWork Route'  // Name displayed to the user
-        );
-
-        console.log('Protocol handlers registered successfully');
-    } else {
-        console.log('Protocol handler registration is not supported in this browser');
-    }
-});
-
-
 let deferredPrompt;
 
 // Listen for the `beforeinstallprompt` event
