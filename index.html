@@ -13,7 +13,7 @@
     <body>
 
         <header>
-
+            <img src="./img/icons/icon-128x128.png" alt="TrainWork Logo" id="logo">
         </header>
         <main>
             <h1>Plane deine Produktivitätsreise</h1>
@@ -23,13 +23,14 @@
                 <label for="destination">Zielort</label>
                 <input type="text" name="destination" id="destination">
                 <label for="departureTime">Abfahrtszeit</label>
-                <input type="timedate" name="departureTime" id="departureTime">
+                <input type="datetime-local" name="departureTime" id="departureTime">
                 <label for="arrivalTime">Ankunftszeit</label>
-                <input type="time" name="arrivalTime" id="arrivalTime">
+                <input type="datetime-local" name="arrivalTime" id="arrivalTime">
+                <button type="submit">Reise suchen</button>
             </form>
         </main>
         <footer>
-
+            <p>&copy; 2020 TrainWork</p>
         </footer>
 
         <div id="downloadModal" class="modal">

@@ -5,6 +5,8 @@ const assets = [
   "/route.html",
   "/css/style.css",
   "/css/modal.css",
+  "/css/route.css",
+  "/css/index.css",
   "/js/app.js",
   "/js/modal_mechanic.js",
 ]
