@@ -7,6 +7,35 @@ if ("serviceWorker" in navigator) {
     })
 }
 
+let deferredPrompt;
+
+// Listen for the `beforeinstallprompt` event
+window.addEventListener('beforeinstallprompt', (e) => {
+    console.log('beforeinstallprompt fired');
+    // Prevent the default prompt from showing
+    e.preventDefault();
+    // Store the event so it can be triggered later
+    deferredPrompt = e;
+    // Show the install button
+    document.getElementById('installButton').style.display = 'block';
+});
+
+// When the user clicks the install button
+document.getElementById('installButton').addEventListener('click', () => {
+    // Hide the install button
+    document.getElementById('installButton').style.display = 'none';
+    // Show the install prompt
+    deferredPrompt.prompt();
+    // Optionally handle the user response
+    deferredPrompt.userChoice.then((choiceResult) => {
+        if (choiceResult.outcome === 'accepted') {
+            console.log('User accepted the install prompt');
+        } else {
+            console.log('User dismissed the install prompt');
+        }
+        deferredPrompt = null;
+    });
+});
 
 const isMobile = () => {
     const hasTouchScreen = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
@@ -17,6 +46,8 @@ const isMobile = () => {
 
     return hasTouchScreen && isSmallScreen;
 };
+
+
 
 const isStandalone = window.matchMedia('(display-mode: standalone)').matches;
 // console.log(`Standalone mode: ${isStandalone}`);
@@ -29,5 +60,6 @@ if (isMobile() && !isStandalone) {
 } else {
     console.log("No Modal needed");
 }
+
 
 

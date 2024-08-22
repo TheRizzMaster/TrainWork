@@ -1,32 +1,48 @@
 {
     "name": "TrainWork",
     "short_name": "TrainWork",
-    "start_url": "index.html",
+    "start_url": "/",
     "display": "standalone",
     "background_color": "#ffffff",
     "theme_color": "#62806A",
     "orientation": "portrait-primary",
     "scope": ".",
     "icons": [
-      {
-        "src": "/img/icons/icon-32x32.png",
-        "type": "image/png", "sizes": "32x32"
-      },
-      {
-        "src": "/img/icons/icon-64x64.png",
-        "type": "image/png", "sizes": "64x64"
-      },
-      {
-        "src": "/img/icons/icon-128x128.png",
-        "type": "image/png", "sizes": "128x128"
-      },
-      {
-        "src": "/img/icons/icon-256x256.png",
-        "type": "image/png", "sizes": "256x256"
-      },
-      {
-        "src": "/img/icons/icon-512x512.png",
-        "type": "image/png", "sizes": "512x512"
-      }
+        {
+            "src": "/img/icons/icon-32x32.png",
+            "type": "image/png", "sizes": "32x32"
+        },
+        {
+            "src": "/img/icons/icon-64x64.png",
+            "type": "image/png", "sizes": "64x64"
+        },
+        {
+            "src": "/img/icons/icon-128x128.png",
+            "type": "image/png", "sizes": "128x128"
+        },
+        {
+            "src": "/img/icons/icon-256x256.png",
+            "type": "image/png", "sizes": "256x256"
+        },
+        {
+            "src": "/img/icons/icon-512x512.png",
+            "type": "image/png", "sizes": "512x512"
+        }
+    ],
+    "screenshots" : [
+        {
+            "src": "./img/screenshot1.webp",
+            "sizes": "712x1544",
+            "type": "image/webp",
+            "form_factor": "narrow",
+            "label": "Homescreen of Awesome App"
+        },
+        {
+            "src": "./img/screenshot2.webp",
+            "sizes": "1696x928",
+            "type": "image/webp",
+            "form_factor": "wide",
+            "label": "Desktop of Awesome App"
+        }
     ]
   }
