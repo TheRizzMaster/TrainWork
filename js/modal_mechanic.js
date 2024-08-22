@@ -15,3 +15,16 @@ window.onclick = function(event) {
         modal.style.display = "none";
     }
 }
+
+function isAppleDevice() {
+    const userAgent = navigator.userAgent;
+    const platform = navigator.platform;
+    return /Mac|iPhone|iPod|iPad/.test(userAgent) || /MacIntel|iPhone|iPod|iPad/.test(platform);
+}
+
+if (isAppleDevice()) {
+    const appleDownload = document.getElementById("appleDownload");
+    appleDownload.style.display = "block";
+} else {
+    console.log("User is not on an Apple device");
+}
