@@ -1,0 +1,11 @@
+:root {
+    --brandgreen: #62806A;
+    --buttongreen: #33553C;
+    --secondary: #93AA99;
+    --lightgray: #D9D9D9;
+    --offwhite: #F9F9F9;
+}
+
+body {
+    background-color: var(--offwhite);
+}
