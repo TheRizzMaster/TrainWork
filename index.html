@@ -6,10 +6,39 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge" />
         <link rel="manifest" href="manifest.json" />
         <!-- <link rel="stylesheet" href="./css/style.css" /> -->
+         <link rel="stylesheet" href="./css/modal.css">
         <title>TrainWork</title>
     </head>
 
     <body>
-        
+
+        <header>
+
+        </header>
+        <main>
+            <h1>Plane deine Produktivitätsreise</h1>
+            <form>
+                <label for="departure">Abfahrtsort</label>
+                <input type="text" name="departure" id="departure">
+                <label for="destination">Zielort</label>
+                <input type="text" name="destination" id="destination">
+                <label for="departureTime">Abfahrtszeit</label>
+                <input type="timedate" name="departureTime" id="departureTime">
+                <label for="arrivalTime">Ankunftszeit</label>
+                <input type="time" name="arrivalTime" id="arrivalTime">
+            </form>
+        </main>
+        <footer>
+
+        </footer>
+
+        <div id="downloadModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <p>Please Download me!</p>
+            </div>
+        </div>
+
+        <script src="./js/modal_mechanic.js"></script>
         <script src="./js/app.js" async></script>
     </body>

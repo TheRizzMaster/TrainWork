@@ -6,6 +6,7 @@
     "background_color": "#ffffff",
     "theme_color": "#62806A",
     "orientation": "portrait-primary",
+    "scope": ".",
     "icons": [
       {
         "src": "/img/icons/icon-32x32.png",

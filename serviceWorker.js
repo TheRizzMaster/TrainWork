@@ -2,8 +2,11 @@ const staticPhoneStore = "phone-store-site-v1"
 const assets = [
   "/",
   "/index.html",
+  "/route.html",
   "/css/style.css",
+  "/css/modal.css",
   "/js/app.js",
+  "/js/modal_mechanic.js",
 ]
 
 self.addEventListener("install", installEvent => {
