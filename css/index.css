@@ -4,6 +4,7 @@ form {
     align-items: flex-start;
     /* justify-content: center; */
     margin: 0 auto;
+    margin-top: -100px;
     padding: 1rem;
     width: 80%;
     max-width: 500px;
@@ -23,17 +24,18 @@ label {
     margin-bottom: -10px;
     margin-left: 5px;
     z-index: 10;
+    filter:drop-shadow(3px 3px 5px rgba(0,0,0,0.4));
 
 }
 
 #arrow {
-    position: absolute;
-    top: 211px;
-    left: 9%;
+    position: relative;
+    top: 117px;
+    left: -21px;
     z-index: 10;
 }
 
-@media screen and (min-width: 500px) {
+/* @media screen and (min-width: 500px) {
     #arrow {
         top: 190px;
         left: 18.5%;
@@ -46,13 +48,13 @@ label {
         left: 25%;
     }   
     
-}
+} */
 
 #timeWrapper {
     display: flex;
     justify-content: space-between;
     width: 100%;
-    
+
 
 }
 
@@ -65,10 +67,10 @@ label {
     width: 40%;
 }
 
-#departureTime {  
+#departureTime {
     flex: 1;
     width: 100%;
-    
+
 }
 
 #arrivalTime {
