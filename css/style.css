@@ -57,6 +57,10 @@ table {
     --offwhite: #F9F9F9;
 }
 
+* {
+    box-sizing: border-box;
+}
+
 /* ------- Fonts ------ */
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
@@ -103,4 +107,46 @@ h1 {
     margin: 30px auto;
 }
 
+label {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 14px;
+    display: block;
+    margin-bottom: 0px;
+}
+
+input[type="text"], input[type="datetime-local"], input[type="password"] {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 16px;
+    padding: 10px;
+    margin-bottom: 20px;
+    width: 100%;
+    border: none;
+    background-color: var(--lightgray);
+    border-radius: 10px;
+    height: 50px;
+}
+
+button {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 16px;
+    padding: 10px;
+    margin-bottom: 20px;
+    width: 100%;
+    border: none;
+    background-color: var(--buttongreen);
+    color: white;
+    border-radius: 10px;
+    height: 50px;
+    cursor: pointer;
+    text-transform: uppercase;
+}
 /* ------- End End Base Definitions ------ */
