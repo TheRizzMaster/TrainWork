@@ -1,0 +1,322 @@
+{
+    "best_routes": [
+        [
+            {
+                "from": "Chur",
+                "to": "Sargans",
+                "departure": "09:08",
+                "arrival": "09:26",
+                "type": "IC"
+            },
+            {
+                "from": "Sargans",
+                "to": "St. Gallen",
+                "departure": "09:35",
+                "arrival": "10:35",
+                "type": "IR"
+            },
+            {
+                "from": "St. Gallen",
+                "to": "Zürich HB",
+                "departure": "10:37",
+                "arrival": "11:51",
+                "type": "IR"
+            },
+            {
+                "from": "Zürich HB",
+                "to": "Olten",
+                "departure": "12:06",
+                "arrival": "12:55",
+                "type": "IR"
+            },
+            {
+                "from": "Olten",
+                "to": "St. Gallen",
+                "departure": "12:59",
+                "arrival": "14:52",
+                "type": "IC"
+            },
+            {
+                "from": "St. Gallen",
+                "to": "Sargans",
+                "departure": "15:05",
+                "arrival": "16:23",
+                "type": "IR"
+            },
+            {
+                "from": "Sargans",
+                "to": "Zürich HB",
+                "departure": "16:35",
+                "arrival": "17:48",
+                "type": "IR"
+            },
+            {
+                "from": "Zürich HB",
+                "to": "Bern",
+                "departure": "18:02",
+                "arrival": "18:58",
+                "type": "IC"
+            }
+        ],
+        [
+            {
+                "from": "Chur",
+                "to": "Sargans",
+                "departure": "09:08",
+                "arrival": "09:26",
+                "type": "IC"
+            },
+            {
+                "from": "Sargans",
+                "to": "Zürich HB",
+                "departure": "09:35",
+                "arrival": "10:48",
+                "type": "IR"
+            },
+            {
+                "from": "Zürich HB",
+                "to": "Olten",
+                "departure": "10:53",
+                "arrival": "11:28",
+                "type": "IR"
+            },
+            {
+                "from": "Olten",
+                "to": "Basel SBB",
+                "departure": "11:30",
+                "arrival": "11:56",
+                "type": "IR"
+            },
+            {
+                "from": "Basel SBB",
+                "to": "Zürich HB",
+                "departure": "12:11",
+                "arrival": "13:24",
+                "type": "IR"
+            },
+            {
+                "from": "Zürich HB",
+                "to": "St. Gallen",
+                "departure": "13:39",
+                "arrival": "14:52",
+                "type": "IC"
+            },
+            {
+                "from": "St. Gallen",
+                "to": "Sargans",
+                "departure": "15:05",
+                "arrival": "16:23",
+                "type": "IR"
+            },
+            {
+                "from": "Sargans",
+                "to": "Zürich HB",
+                "departure": "16:35",
+                "arrival": "17:48",
+                "type": "IR"
+            },
+            {
+                "from": "Zürich HB",
+                "to": "Bern",
+                "departure": "18:02",
+                "arrival": "18:58",
+                "type": "IC"
+            }
+        ],
+        [
+            {
+                "from": "Chur",
+                "to": "Sargans",
+                "departure": "09:08",
+                "arrival": "09:26",
+                "type": "IC"
+            },
+            {
+                "from": "Sargans",
+                "to": "Zürich HB",
+                "departure": "09:35",
+                "arrival": "10:48",
+                "type": "IR"
+            },
+            {
+                "from": "Zürich HB",
+                "to": "Olten",
+                "departure": "10:53",
+                "arrival": "11:28",
+                "type": "IR"
+            },
+            {
+                "from": "Olten",
+                "to": "Basel SBB",
+                "departure": "11:30",
+                "arrival": "11:56",
+                "type": "IR"
+            },
+            {
+                "from": "Basel SBB",
+                "to": "Zürich HB",
+                "departure": "12:11",
+                "arrival": "13:24",
+                "type": "IR"
+            },
+            {
+                "from": "Zürich HB",
+                "to": "St. Gallen",
+                "departure": "13:39",
+                "arrival": "14:52",
+                "type": "IC"
+            },
+            {
+                "from": "St. Gallen",
+                "to": "Olten",
+                "departure": "15:07",
+                "arrival": "17:00",
+                "type": "IC"
+            },
+            {
+                "from": "Olten",
+                "to": "Zürich HB",
+                "departure": "17:02",
+                "arrival": "17:54",
+                "type": "IR"
+            },
+            {
+                "from": "Zürich HB",
+                "to": "Bern",
+                "departure": "18:02",
+                "arrival": "18:58",
+                "type": "IC"
+            }
+        ],
+        [
+            {
+                "from": "Chur",
+                "to": "Sargans",
+                "departure": "09:08",
+                "arrival": "09:26",
+                "type": "IC"
+            },
+            {
+                "from": "Sargans",
+                "to": "Zürich HB",
+                "departure": "09:35",
+                "arrival": "10:48",
+                "type": "IR"
+            },
+            {
+                "from": "Zürich HB",
+                "to": "Olten",
+                "departure": "10:53",
+                "arrival": "11:28",
+                "type": "IR"
+            },
+            {
+                "from": "Olten",
+                "to": "Basel SBB",
+                "departure": "11:30",
+                "arrival": "11:56",
+                "type": "IR"
+            },
+            {
+                "from": "Basel SBB",
+                "to": "Zürich HB",
+                "departure": "12:11",
+                "arrival": "13:24",
+                "type": "IR"
+            },
+            {
+                "from": "Zürich HB",
+                "to": "St. Gallen",
+                "departure": "13:39",
+                "arrival": "14:52",
+                "type": "IC"
+            },
+            {
+                "from": "St. Gallen",
+                "to": "Olten",
+                "departure": "15:07",
+                "arrival": "17:00",
+                "type": "IC"
+            },
+            {
+                "from": "Olten",
+                "to": "Zürich HB",
+                "departure": "17:05",
+                "arrival": "17:52",
+                "type": "IR"
+            },
+            {
+                "from": "Zürich HB",
+                "to": "Bern",
+                "departure": "18:02",
+                "arrival": "18:58",
+                "type": "IC"
+            }
+        ],
+        [
+            {
+                "from": "Chur",
+                "to": "Sargans",
+                "departure": "09:08",
+                "arrival": "09:26",
+                "type": "IC"
+            },
+            {
+                "from": "Sargans",
+                "to": "Zürich HB",
+                "departure": "09:35",
+                "arrival": "10:48",
+                "type": "IR"
+            },
+            {
+                "from": "Zürich HB",
+                "to": "Olten",
+                "departure": "10:53",
+                "arrival": "11:28",
+                "type": "IR"
+            },
+            {
+                "from": "Olten",
+                "to": "St. Gallen",
+                "departure": "11:30",
+                "arrival": "13:44",
+                "type": "IR"
+            },
+            {
+                "from": "St. Gallen",
+                "to": "Zürich HB",
+                "departure": "13:58",
+                "arrival": "14:57",
+                "type": "IC"
+            },
+            {
+                "from": "Zürich HB",
+                "to": "Olten",
+                "departure": "15:06",
+                "arrival": "15:55",
+                "type": "IR"
+            },
+            {
+                "from": "Olten",
+                "to": "Basel SBB",
+                "departure": "16:06",
+                "arrival": "16:32",
+                "type": "IC"
+            },
+            {
+                "from": "Basel SBB",
+                "to": "Zürich HB",
+                "departure": "16:37",
+                "arrival": "17:49",
+                "type": "IR"
+            },
+            {
+                "from": "Zürich HB",
+                "to": "Bern",
+                "departure": "18:02",
+                "arrival": "18:58",
+                "type": "IC"
+            }
+        ]
+    ]
+}
