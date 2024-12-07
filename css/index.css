@@ -79,6 +79,9 @@ label {
 }
 
 /* Style for suggestion list container */
+
+
+
 #suggestionsDeparture, 
 #suggestionsDestination {
     list-style-type: none;
@@ -99,6 +102,7 @@ label {
 .suggestion-item {
     padding: 10px 15px;
     cursor: pointer;
+    font-family: "Inter", sans-serif;
 }
 
 .suggestion-item:hover {
