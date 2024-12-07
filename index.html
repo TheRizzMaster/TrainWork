@@ -18,12 +18,14 @@
         </header>
         <main>
             <h1>Plane deine Produktivitätsreise</h1>
-            <form>
+            <form id="trainForm">
                 <img src="./img/arrow.svg" alt="Verbindungsicon zwischen Abfahrt und Ankunft" id="arrow">
                 <label for="departure">Abfahrtsort</label>
                 <input type="text" name="departure" id="departure">
+                <ul id="suggestionsDeparture"></ul>
                 <label for="destination">Zielort</label>
                 <input type="text" name="destination" id="destination">
+                <ul id="suggestionsDestination"></ul>
                 <div id="timeWrapper">
                     <div>
                         <label for="departureTime">Abfahrtszeit</label>
