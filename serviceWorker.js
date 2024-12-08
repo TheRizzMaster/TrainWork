@@ -9,6 +9,8 @@ const assets = [
   "/css/index.css",
   "/js/app.js",
   "/js/modal_mechanic.js",
+  "/js/routes.js",
+  "/js/index.js",
 ]
 
 self.addEventListener("install", installEvent => {
