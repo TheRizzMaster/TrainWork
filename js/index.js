@@ -3,8 +3,49 @@ const arrival = document.getElementById('destination');
 const suggestionsDeparture = document.getElementById('suggestionsDeparture');
 const suggestionsDestination = document.getElementById('suggestionsDestination');
 const form = document.getElementById('trainForm'); // Get the form element
+const departureTimeInput = document.getElementById('departureTime');
+const arrivalTimeInput = document.getElementById('arrivalTime');
 
 console.log("Index script loaded");
+
+// Restrict departure time to not be in the past
+function setMinDepartureTime() {
+    const now = new Date();
+    const formattedDate = now.toISOString().slice(0, 16); // Format to YYYY-MM-DDTHH:mm
+    departureTimeInput.min = formattedDate;
+}
+
+// Restrict arrival time to be within the same day as departure and after departure
+function updateArrivalTimeConstraints() {
+    const departureTime = new Date(departureTimeInput.value);
+    
+    if (!isNaN(departureTime)) {
+        // Set the minimum arrival time to be the departure time
+        arrivalTimeInput.min = departureTime.toISOString().slice(0, 16);
+        
+        // Set the maximum arrival time to be the end of the same day as the departure
+        const endOfDay = new Date(departureTime);
+        endOfDay.setHours(23, 59, 59, 999);
+        arrivalTimeInput.max = endOfDay.toISOString().slice(0, 16);
+    }
+}
+
+// Set initial constraints when the page loads
+setMinDepartureTime();
+
+departureTimeInput.addEventListener('change', () => {
+    updateArrivalTimeConstraints();
+    
+    // Ensure arrival time doesn't violate constraints
+    const arrivalTime = new Date(arrivalTimeInput.value);
+    const departureTime = new Date(departureTimeInput.value);
+    
+    if (arrivalTime < departureTime) {
+        arrivalTimeInput.value = '';
+    } else if (arrivalTime > new Date(departureTime.getFullYear(), departureTime.getMonth(), departureTime.getDate(), 23, 59)) {
+        arrivalTimeInput.value = '';
+    }
+});
 
 // Handle form submission using AJAX
 form.addEventListener('submit', async (event) => {
