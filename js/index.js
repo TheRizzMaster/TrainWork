@@ -43,7 +43,7 @@ async function fetchStations(query) {
 // Function to handle input and show suggestions
 async function handleInput(event, element, suggestionsElement) {
     const query = element.value.trim();
-    if (query.length > 2) { // Trigger search only if the query is longer than 2 characters
+    if (query.length >= 2) { // Trigger search only if the query is longer than 2 characters
         const stations = await fetchStations(query);
         console.log("Suggestions for", query, stations);
 
