@@ -1,12 +1,45 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Route</title>
-    <link rel="stylesheet" type="text/css" href="css/route.css">
-    <link rel="stylesheet" href="css/style.css">
-    <script src="./js/routes.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Route Details</title>
 </head>
 <body>
-    
+    <div id="route-details"></div>
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const routeIndex = params.get('route');
+
+        async function getRouteData() {
+            try {
+                const response = await fetch('./data/testdata.json');
+                const data = await response.json();
+                const route = data.best_routes[routeIndex];
+
+                displayRouteDetails(route);
+            } catch (error) {
+                console.error("Failed to fetch route details", error);
+            }
+        }
+
+        function displayRouteDetails(route) {
+            const container = document.getElementById('route-details');
+            
+            route.forEach(trip => {
+                const tripCard = document.createElement('div');
+                tripCard.innerHTML = `
+                    <h3>From ${trip.from} to ${trip.to}</h3>
+                    <p><strong>Departure:</strong> ${trip.departure}</p>
+                    <p><strong>Arrival:</strong> ${trip.arrival}</p>
+                    <p><strong>Type:</strong> ${trip.type}</p>
+                    <p><strong>Platform:</strong> ${trip.platform}</p>
+                `;
+                container.appendChild(tripCard);
+            });
+        }
+
+        getRouteData();
+    </script>
 </body>
 </html>
