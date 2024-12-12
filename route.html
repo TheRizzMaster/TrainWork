@@ -1,11 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Route Details</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/route.css">
 </head>
+
 <body>
+    <a href="index.html">← Zurück</a>
     <div id="route-details"></div>
     <script>
         const params = new URLSearchParams(window.location.search);
@@ -25,16 +30,36 @@
 
         function displayRouteDetails(route) {
             const container = document.getElementById('route-details');
-            
+
+            const routeTitle = document.createElement('h1');
+            routeTitle.textContent = `${route[0].from} → ${route[route.length - 1].to}`;
+            container.appendChild(routeTitle);
+
             route.forEach(trip => {
                 const tripCard = document.createElement('div');
+                tripCard.classList.add('trip-card');
+
                 tripCard.innerHTML = `
-                    <h3>From ${trip.from} to ${trip.to}</h3>
-                    <p><strong>Departure:</strong> ${trip.departure}</p>
-                    <p><strong>Arrival:</strong> ${trip.arrival}</p>
-                    <p><strong>Type:</strong> ${trip.type}</p>
-                    <p><strong>Platform:</strong> ${trip.platform}</p>
+                    <p class="departureTime"><strong>${trip.departure}</strong></p>
+                    <p class="arrivalTime"><strong>${trip.arrival}</strong></p>
+                    <svg class="line" width="2" height="119" viewBox="0 0 2 119" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M1 0L0.999995 119" stroke="black" stroke-width="2"/>
+</svg>
+
+                    <p class="from"><strong>${trip.from}</strong></p>
+                    <p class="to"><strong>${trip.to}</strong></p>
+                    <p class="type"><strong>${trip.type}</strong> </p>
+                    <p class="departurePlatform"><strong>Gleis:</strong> ${trip.platform}</p>
                 `;
+
+
+                // tripCard.innerHTML = `
+                //     <h2>Von ${trip.from} nach ${trip.to}</h2>
+                //     <p><strong>Departure:</strong> ${trip.departure}</p>
+                //     <p><strong>Arrival:</strong> ${trip.arrival}</p>
+                //     <p><strong>Type:</strong> ${trip.type}</p>
+                //     <p><strong>Platform:</strong> ${trip.platform}</p>
+                // `;
                 container.appendChild(tripCard);
             });
         }
@@ -42,4 +67,5 @@
         getRouteData();
     </script>
 </body>
+
 </html>

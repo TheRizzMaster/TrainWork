@@ -28,8 +28,8 @@ function displayData(data) {
         routeContainer.classList.add('route');
 
         routeContainer.innerHTML = `
-            <h3>Route ${routeIndex + 1}</h3>
-            <p><strong>From:</strong> ${first.from} <strong>(${first.departure})</strong> to <strong>${last.to}</strong> <strong>(${last.arrival})</strong></p>
+            <h2>Route ${routeIndex + 1} ${first.type}</h2>
+            <p><strong>Von:</strong> ${first.from} <strong>(${first.departure})</strong> nach <strong>${last.to}</strong> <strong>(${last.arrival})</strong></p>
         `;
 
         container.appendChild(routeContainer);
