@@ -123,16 +123,6 @@ h2 {
     padding: 10px 0;
 }
 
-p {
-    font-family: "Inter", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 16px;
-    max-width: 70vw;
-    margin: 0 auto;
-    padding: 30px 0;
-}
 
 label {
     font-family: "Inter", sans-serif;

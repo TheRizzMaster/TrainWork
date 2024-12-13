@@ -10,6 +10,22 @@
     box-sizing: border-box;
 }
 
+header {
+    margin-bottom: 30px;
+}
+.back{
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 16px;
+    color: black;
+    text-decoration: none;
+    text-transform: uppercase;
+    margin: 26px 34px;
+}
+
+
 
 
 #route-details {
@@ -86,7 +102,15 @@ strong {
     font-weight: 800;
 }
 
+
 p {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 16px;
+    max-width: 70vw;
+    margin: 0 auto;
     margin: 0;
     padding: 0;
 }

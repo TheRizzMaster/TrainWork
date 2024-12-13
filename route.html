@@ -5,41 +5,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Route Details</title>
-    <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="./css/route.css">
+    <link rel="stylesheet" href="./css/style.css?v=1.0">
+    <link rel="stylesheet" href="./css/route.css?v=1.0">
+
 </head>
 
 <body>
-    <a href="index.html">← Zurück</a>
-    <div id="route-details"></div>
-    <script>
-        const params = new URLSearchParams(window.location.search);
-        const routeIndex = params.get('route');
+    <header>
+        <img src="./img/logo.svg" alt="TrainWork Logo" id="logo">
+    </header>
+    <main>
+        <a class="back" href="index.html">← Zurück</a>
+        <div id="route-details"></div>
+        <script>
+            const params = new URLSearchParams(window.location.search);
+            const routeIndex = params.get('route');
 
-        async function getRouteData() {
-            try {
-                const response = await fetch('./data/testdata.json');
-                const data = await response.json();
-                const route = data.best_routes[routeIndex];
+            async function getRouteData() {
+                try {
+                    const response = await fetch('./data/testdata.json');
+                    const data = await response.json();
+                    const route = data.best_routes[routeIndex];
 
-                displayRouteDetails(route);
-            } catch (error) {
-                console.error("Failed to fetch route details", error);
+                    displayRouteDetails(route);
+                } catch (error) {
+                    console.error("Failed to fetch route details", error);
+                }
             }
-        }
 
-        function displayRouteDetails(route) {
-            const container = document.getElementById('route-details');
+            function displayRouteDetails(route) {
+                const container = document.getElementById('route-details');
 
-            const routeTitle = document.createElement('h1');
-            routeTitle.textContent = `${route[0].from} → ${route[route.length - 1].to}`;
-            container.appendChild(routeTitle);
+                const routeTitle = document.createElement('h1');
+                routeTitle.textContent = `${route[0].from} → ${route[route.length - 1].to}`;
+                container.appendChild(routeTitle);
 
-            route.forEach(trip => {
-                const tripCard = document.createElement('div');
-                tripCard.classList.add('trip-card');
+                route.forEach(trip => {
+                    const tripCard = document.createElement('div');
+                    tripCard.classList.add('trip-card');
 
-                tripCard.innerHTML = `
+                    tripCard.innerHTML = `
                     <p class="departureTime"><strong>${trip.departure}</strong></p>
                     <p class="arrivalTime"><strong>${trip.arrival}</strong></p>
                     <svg class="line" width="2" height="119" viewBox="0 0 2 119" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -52,20 +57,18 @@
                     <p class="departurePlatform"><strong>Gleis:</strong> ${trip.platform}</p>
                 `;
 
+                    container.appendChild(tripCard);
+                });
+            }
 
-                // tripCard.innerHTML = `
-                //     <h2>Von ${trip.from} nach ${trip.to}</h2>
-                //     <p><strong>Departure:</strong> ${trip.departure}</p>
-                //     <p><strong>Arrival:</strong> ${trip.arrival}</p>
-                //     <p><strong>Type:</strong> ${trip.type}</p>
-                //     <p><strong>Platform:</strong> ${trip.platform}</p>
-                // `;
-                container.appendChild(tripCard);
-            });
-        }
+            getRouteData();
+        </script>
+    </main>
 
-        getRouteData();
-    </script>
 </body>
+<footer>
+    <p>Created by Jasper Bleeker and Siro Rudolf</p>
+    <p>&copy;<span id="copyYear"></span> TrainWork</p>
+</footer>
 
 </html>
