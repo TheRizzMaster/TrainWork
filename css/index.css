@@ -135,6 +135,7 @@ label {
     display: flex;
     justify-content: space-between;
     padding: 16px;
+    align-items: center;
     font-family: "Inter", sans-serif;
     font-optical-sizing: auto;
     font-weight: 400;
