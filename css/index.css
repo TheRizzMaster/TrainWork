@@ -191,6 +191,15 @@ label {
 .route p {
     font-size: 16px;
     margin: 5px 0;
+    width: 33%;
+}
+
+.pTrack {
+    text-align: center;
+}
+
+.time {
+    text-align: right;
 }
 
 .route strong {
