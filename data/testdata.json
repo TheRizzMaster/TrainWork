@@ -1,143 +1,354 @@
 {
+    "anschlussverbindungen": {
+        "start_to_nearest": {
+            "from": "Davos, Platz",
+            "to": "Chur",
+            "from_platform": "3",
+            "to_platform": "4",
+            "connections": [
+                {
+                    "departure": "2024-12-17T08:32:00+0100",
+                    "arrival": "2024-12-17T09:56:00+0100"
+                }
+            ]
+        },
+        "nearest_to_end": {
+            "from": "Olten",
+            "to": "Brugg",
+            "from_platform": "4",
+            "to_platform": "8",
+            "connections": [
+                {
+                    "departure": "2024-12-17T17:32:00+0100",
+                    "arrival": "2024-12-17T17:55:00+0100"
+                }
+            ]
+        }
+    },
     "best_routes": [
         [
             {
                 "from": "Chur",
                 "to": "Sargans",
-                "departure": "09:08",
-                "arrival": "09:26",
-                "type": "IC",
-                "platform": 3
+                "departure": "10:08",
+                "arrival": "10:27",
+                "type": "IC3",
+                "from_platform": "9",
+                "to_platform": "2"
             },
             {
                 "from": "Sargans",
+                "to": "Zürich HB",
+                "departure": "10:27",
+                "arrival": "11:22",
+                "type": "IC3",
+                "from_platform": "2",
+                "to_platform": "7"
+            },
+            {
+                "from": "Zürich HB",
+                "to": "Luzern",
+                "departure": "11:35",
+                "arrival": "12:25",
+                "type": "IR75",
+                "from_platform": "11",
+                "to_platform": "4"
+            },
+            {
+                "from": "Luzern",
                 "to": "St. Gallen",
-                "departure": "09:35",
-                "arrival": "10:35",
-                "type": "IR",
-                "platform": 5
+                "departure": "12:35",
+                "arrival": "14:30",
+                "type": "IR75",
+                "from_platform": "4",
+                "to_platform": "2"
             },
             {
                 "from": "St. Gallen",
                 "to": "Zürich HB",
-                "departure": "10:37",
-                "arrival": "11:51",
-                "type": "IR",
-                "platform": 6
+                "departure": "14:37",
+                "arrival": "15:51",
+                "type": "IR13",
+                "from_platform": "1",
+                "to_platform": "16"
             },
             {
                 "from": "Zürich HB",
+                "to": "Basel SBB",
+                "departure": "15:59",
+                "arrival": "16:53",
+                "type": "IC3",
+                "from_platform": "16",
+                "to_platform": "10"
+            },
+            {
+                "from": "Basel SBB",
                 "to": "Olten",
-                "departure": "12:06",
-                "arrival": "12:55",
-                "type": "IR",
-                "platform": 2
-            },
-            {
-                "from": "Olten",
-                "to": "St. Gallen",
-                "departure": "12:59",
-                "arrival": "14:52",
-                "type": "IC",
-                "platform": 14
-            },
-            {
-                "from": "St. Gallen",
-                "to": "Sargans",
-                "departure": "15:05",
-                "arrival": "16:23",
-                "type": "IR",
-                "platform": 4
-            },
-            {
-                "from": "Sargans",
-                "to": "Zürich HB",
-                "departure": "16:35",
-                "arrival": "17:48",
-                "type": "IR",
-                "platform": 12
-            },
-            {
-                "from": "Zürich HB",
-                "to": "Bern",
-                "departure": "18:02",
-                "arrival": "18:58",
-                "type": "IC",
-                "platform": 14
+                "departure": "16:56",
+                "arrival": "17:25",
+                "type": "IC6",
+                "from_platform": "7",
+                "to_platform": "11"
             }
         ],
         [
             {
                 "from": "Chur",
                 "to": "Sargans",
-                "departure": "09:08",
-                "arrival": "09:26",
-                "type": "IC",
-                "platform": 5
+                "departure": "10:08",
+                "arrival": "10:27",
+                "type": "IC3",
+                "from_platform": "9",
+                "to_platform": "2"
             },
             {
                 "from": "Sargans",
                 "to": "Zürich HB",
-                "departure": "09:35",
-                "arrival": "10:48",
-                "type": "IR",
-                "platform": 17
+                "departure": "10:27",
+                "arrival": "11:22",
+                "type": "IC3",
+                "from_platform": "2",
+                "to_platform": "7"
             },
             {
                 "from": "Zürich HB",
-                "to": "Olten",
-                "departure": "10:53",
-                "arrival": "11:28",
-                "type": "IR",
-                "platform": 1
+                "to": "Luzern",
+                "departure": "11:35",
+                "arrival": "12:25",
+                "type": "IR75",
+                "from_platform": "11",
+                "to_platform": "4"
             },
             {
-                "from": "Olten",
-                "to": "Basel SBB",
-                "departure": "11:30",
-                "arrival": "11:56",
+                "from": "Luzern",
+                "to": "Bellinzona",
+                "departure": "12:39",
+                "arrival": "14:12",
                 "type": "IR",
-                "platform": 8
+                "from_platform": "2",
+                "to_platform": "3"
+            },
+            {
+                "from": "Bellinzona",
+                "to": "Zürich HB",
+                "departure": "14:17",
+                "arrival": "15:55",
+                "type": "IC21",
+                "from_platform": "1",
+                "to_platform": "8"
+            },
+            {
+                "from": "Zürich HB",
+                "to": "Basel SBB",
+                "departure": "15:59",
+                "arrival": "16:53",
+                "type": "IC3",
+                "from_platform": "16",
+                "to_platform": "10"
             },
             {
                 "from": "Basel SBB",
-                "to": "Zürich HB",
-                "departure": "12:11",
-                "arrival": "13:24",
-                "type": "IR",
-                "platform": 11
-            },
+                "to": "Olten",
+                "departure": "16:56",
+                "arrival": "17:25",
+                "type": "IC6",
+                "from_platform": "7",
+                "to_platform": "11"
+            }
+        ],
+        [
             {
-                "from": "Zürich HB",
-                "to": "St. Gallen",
-                "departure": "13:39",
-                "arrival": "14:52",
-                "type": "IC",
-                "platform": 12
-            },
-            {
-                "from": "St. Gallen",
+                "from": "Chur",
                 "to": "Sargans",
-                "departure": "15:05",
-                "arrival": "16:23",
-                "type": "IR",
-                "platform": 11
+                "departure": "10:08",
+                "arrival": "10:27",
+                "type": "IC3",
+                "from_platform": "9",
+                "to_platform": "2"
             },
             {
                 "from": "Sargans",
                 "to": "Zürich HB",
-                "departure": "16:35",
-                "arrival": "17:48",
+                "departure": "10:27",
+                "arrival": "11:22",
+                "type": "IC3",
+                "from_platform": "2",
+                "to_platform": "7"
+            },
+            {
+                "from": "Zürich HB",
+                "to": "Luzern",
+                "departure": "11:35",
+                "arrival": "12:25",
+                "type": "IR75",
+                "from_platform": "11",
+                "to_platform": "4"
+            },
+            {
+                "from": "Luzern",
+                "to": "St. Gallen",
+                "departure": "12:39",
+                "arrival": "14:55",
                 "type": "IR",
-                "platform": 8
+                "from_platform": "2",
+                "to_platform": "3"
+            },
+            {
+                "from": "St. Gallen",
+                "to": "Zürich HB",
+                "departure": "14:58",
+                "arrival": "15:57",
+                "type": "IC5",
+                "from_platform": "2",
+                "to_platform": "32"
+            },
+            {
+                "from": "Zürich HB",
+                "to": "Basel SBB",
+                "departure": "15:59",
+                "arrival": "16:53",
+                "type": "IC3",
+                "from_platform": "16",
+                "to_platform": "10"
+            },
+            {
+                "from": "Basel SBB",
+                "to": "Olten",
+                "departure": "16:56",
+                "arrival": "17:25",
+                "type": "IC6",
+                "from_platform": "7",
+                "to_platform": "11"
+            }
+        ],
+        [
+            {
+                "from": "Chur",
+                "to": "Sargans",
+                "departure": "10:08",
+                "arrival": "10:27",
+                "type": "IC3",
+                "from_platform": "9",
+                "to_platform": "2"
+            },
+            {
+                "from": "Sargans",
+                "to": "Zürich HB",
+                "departure": "10:33",
+                "arrival": "11:48",
+                "type": "IR35",
+                "from_platform": "2",
+                "to_platform": "16"
             },
             {
                 "from": "Zürich HB",
                 "to": "Bern",
-                "departure": "18:02",
-                "arrival": "18:58",
-                "type": "IC",
-                "platform": 5
+                "departure": "12:02",
+                "arrival": "12:58",
+                "type": "IC8",
+                "from_platform": "31",
+                "to_platform": "7"
+            },
+            {
+                "from": "Bern",
+                "to": "Luzern",
+                "departure": "13:04",
+                "arrival": "14:30",
+                "type": "EC",
+                "from_platform": "4",
+                "to_platform": "8"
+            },
+            {
+                "from": "Luzern",
+                "to": "Zürich HB",
+                "departure": "14:35",
+                "arrival": "15:25",
+                "type": "IR75",
+                "from_platform": "7",
+                "to_platform": "5"
+            },
+            {
+                "from": "Zürich HB",
+                "to": "Basel SBB",
+                "departure": "15:36",
+                "arrival": "16:48",
+                "type": "IR36",
+                "from_platform": "18",
+                "to_platform": "4"
+            },
+            {
+                "from": "Basel SBB",
+                "to": "Olten",
+                "departure": "16:56",
+                "arrival": "17:25",
+                "type": "IC6",
+                "from_platform": "7",
+                "to_platform": "11"
+            }
+        ],
+        [
+            {
+                "from": "Chur",
+                "to": "Sargans",
+                "departure": "10:08",
+                "arrival": "10:27",
+                "type": "IC3",
+                "from_platform": "9",
+                "to_platform": "2"
+            },
+            {
+                "from": "Sargans",
+                "to": "St. Gallen",
+                "departure": "10:35",
+                "arrival": "11:35",
+                "type": "IR13",
+                "from_platform": "6",
+                "to_platform": "1"
+            },
+            {
+                "from": "St. Gallen",
+                "to": "Luzern",
+                "departure": "11:37",
+                "arrival": "13:51",
+                "type": "IR13",
+                "from_platform": "1",
+                "to_platform": "6"
+            },
+            {
+                "from": "Luzern",
+                "to": "Bern",
+                "departure": "14:00",
+                "arrival": "15:00",
+                "type": "IR15",
+                "from_platform": "8",
+                "to_platform": "3"
+            },
+            {
+                "from": "Bern",
+                "to": "Zürich HB",
+                "departure": "15:02",
+                "arrival": "15:58",
+                "type": "IC81",
+                "from_platform": "2",
+                "to_platform": "34"
+            },
+            {
+                "from": "Zürich HB",
+                "to": "Basel SBB",
+                "departure": "15:59",
+                "arrival": "16:53",
+                "type": "IC3",
+                "from_platform": "16",
+                "to_platform": "10"
+            },
+            {
+                "from": "Basel SBB",
+                "to": "Olten",
+                "departure": "16:56",
+                "arrival": "17:25",
+                "type": "IC6",
+                "from_platform": "7",
+                "to_platform": "11"
             }
         ]
     ]
