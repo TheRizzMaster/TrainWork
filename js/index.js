@@ -23,8 +23,6 @@ function setMinDepartureTime() {
 // Restrict arrival time to be within the same day as departure and after departure
 function updateArrivalTimeConstraints() {
     const departureTime = new Date(departureTimeInput.value);
-    console.log("Departure time:", departureTime);
-    
     if (!isNaN(departureTime)) {
         arrivalTimeInput.min = departureTime.toISOString().slice(0, 16);
         const endOfDay = new Date(departureTime);
@@ -35,16 +33,7 @@ function updateArrivalTimeConstraints() {
 
 setMinDepartureTime();
 
-departureTimeInput.addEventListener('change', () => {
-    updateArrivalTimeConstraints();
-    const arrivalTime = new Date(arrivalTimeInput.value);
-    const departureTime = new Date(departureTimeInput.value);
-    if (arrivalTime < departureTime) {
-        arrivalTimeInput.value = '';
-    } else if (arrivalTime > new Date(departureTime.getFullYear(), departureTime.getMonth(), departureTime.getDate(), 23, 59)) {
-        arrivalTimeInput.value = '';
-    }
-});
+departureTimeInput.addEventListener('change', updateArrivalTimeConstraints);
 
 form.addEventListener('submit', async (event) => {
     event.preventDefault();
@@ -53,14 +42,15 @@ form.addEventListener('submit', async (event) => {
     const destinationValue = formData.get('destination');
     const departureTimeValue = formData.get('departureTime');
     const arrivalTimeValue = formData.get('arrivalTime');
-    console.log("Submitting data:", { departure: departureValue, destination: destinationValue, departureTime: departureTimeValue, arrivalTime: arrivalTimeValue });
-
+    
     try {
         const url = `http://api.fhgr-informatik.ch/get_routes?Abfahrtsort=${encodeURIComponent(departureValue)}&Ankunftsort=${encodeURIComponent(destinationValue)}&Abfahrtszeit=${encodeURIComponent(departureTimeValue)}&Ankunftszeit=${encodeURIComponent(arrivalTimeValue)}&max_waiting_time=15`;
         const response = await fetch(url);
         const result = await response.json();
-        console.log("Form submission successful:", result);
+        // Save results to localStorage
+        localStorage.setItem('routeResults', JSON.stringify(result));
         displayData(result);
+        
     } catch (error) {
         console.log("Error during form submission:", error);
     }
@@ -78,11 +68,13 @@ async function fetchStations(query) {
     }
 }
 
+departure.addEventListener('input', (event) => handleInput(event, departure, suggestionsDeparture));
+arrival.addEventListener('input', (event) => handleInput(event, arrival, suggestionsDestination));
+
 async function handleInput(event, element, suggestionsElement) {
     const query = element.value.trim();
     if (query.length >= 2) {
         const stations = await fetchStations(query);
-        console.log("Suggestions for", query, stations);
         suggestionsElement.innerHTML = '';
         stations.forEach(station => {
             const suggestionItem = document.createElement('li');
@@ -99,8 +91,10 @@ async function handleInput(event, element, suggestionsElement) {
     }
 }
 
-departure.addEventListener('input', (event) => handleInput(event, departure, suggestionsDeparture));
-arrival.addEventListener('input', (event) => handleInput(event, arrival, suggestionsDestination));
+function formatTime(timeString) {
+    const date = new Date(timeString);
+    return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+}
 
 function displayData(data) {
     container.innerHTML = '';
@@ -110,38 +104,40 @@ function displayData(data) {
     }
 
     data.best_routes.forEach((route, routeIndex) => {
-        const first = route[0];
-        const last = route[route.length - 1];
-
+        const startToNearest = data.anschlussverbindungen.start_to_nearest;
+        const nearestToEnd = data.anschlussverbindungen.nearest_to_end;
+        
         const routeContainer = document.createElement('a');
         routeContainer.href = `route.html?route=${routeIndex}`;
         routeContainer.classList.add('route');
 
         routeContainer.innerHTML = `
-        <div class="title">
-            <p>${first.from} → ${last.to}</p>
-            <p>${first.type}</p>
-        </div>
-        <div class="route-info">
-            <p>Abfahrt:</p>
-            <div class="departure">
-                <p>${first.from}</p>
-                <p class="pTrack">Gleis: ${first.from_platform}</p>
-                <p class="time">${first.departure}</p>
+            <div class="title">
+                <p>${startToNearest.from} → ${nearestToEnd.to}</p>
+                <p>${startToNearest.type.join(", ")}</p>
             </div>
-            <svg width="308" height="2" viewBox="0 0 308 2" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <line x1="0" y1="1" x2="308" y2="1" stroke="black" stroke-width="2"/>
-            </svg>
-            <p>Ankunft:</p>
-            <div class="arrival">
-                <p>${last.to}</p>
-                <p class="pTrack">Gleis: ${last.to_platform}</p>
-                <p class="time">${last.arrival}</p>
+            <div class="route-info">
+                <div class="departure">
+                    <p>${startToNearest.from}</p>
+                    <p class="pTrack">Gleis: ${startToNearest.from_platform || '-'}</p>
+                    <p class="time">${formatTime(startToNearest.connections[0].departure)}</p>
+                </div>
+                <svg width="308" height="2" viewBox="0 0 308 2" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <line x1="0" y1="1" x2="308" y2="1" stroke="black" stroke-width="2"/>
+                </svg>
+                <div class="arrival">
+                    <p>${nearestToEnd.to}</p>
+                    <p class="pTrack">Gleis: ${nearestToEnd.to_platform || '-'}</p>
+                    <p class="time">${formatTime(nearestToEnd.connections[0].departure)}</p>
+                </div>
             </div>
-        </div>
-        <button class="show-details">Reise Öffnen</button>
         `;
-
         container.appendChild(routeContainer);
     });
+}
+
+// Check for existing data in localStorage and display it
+const savedResults = localStorage.getItem('routeResults');
+if (savedResults) {
+    displayData(JSON.parse(savedResults));
 }
