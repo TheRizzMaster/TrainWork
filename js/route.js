@@ -38,13 +38,17 @@ function displayRouteDetails(route) {
     routeTitle.textContent = `${route[0].from} → ${route[route.length - 1].to}`;
     container.appendChild(routeTitle);
 
-    route.forEach(trip => {
+    route.forEach((trip, index) => {
         const tripCard = document.createElement('div');
         tripCard.classList.add('trip-card');
 
+        // Only format time for start_to_nearest and nearest_to_end
+        const departureTime = index === 0 || index === route.length - 1 ? formatTime(trip.departure) : trip.departure;
+        const arrivalTime = index === 0 || index === route.length - 1 ? formatTime(trip.arrival) : trip.arrival;
+
         tripCard.innerHTML = `
-        <p class="departureTime"><strong>${formatTime(trip.departure)}</strong></p>
-        <p class="arrivalTime"><strong>${formatTime(trip.arrival)}</strong></p>
+        <p class="departureTime"><strong>${departureTime}</strong></p>
+        <p class="arrivalTime"><strong>${arrivalTime}</strong></p>
         <svg class="line" width="2" height="119" viewBox="0 0 2 119" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M1 0L0.999995 119" stroke="black" stroke-width="2"/>
 </svg>
