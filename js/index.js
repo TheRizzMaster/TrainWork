@@ -44,7 +44,7 @@ form.addEventListener('submit', async (event) => {
     const arrivalTimeValue = formData.get('arrivalTime');
     
     try {
-        const url = `http://api.fhgr-informatik.ch/get_routes?Abfahrtsort=${encodeURIComponent(departureValue)}&Ankunftsort=${encodeURIComponent(destinationValue)}&Abfahrtszeit=${encodeURIComponent(departureTimeValue)}&Ankunftszeit=${encodeURIComponent(arrivalTimeValue)}&max_waiting_time=15`;
+        const url = `https://trainwork.app/api/fetchRoutes.php?Abfahrtsort=${encodeURIComponent(departureValue)}&Ankunftsort=${encodeURIComponent(destinationValue)}&Abfahrtszeit=${encodeURIComponent(departureTimeValue)}&Ankunftszeit=${encodeURIComponent(arrivalTimeValue)}&max_waiting_time=15`;
         const response = await fetch(url);
         const result = await response.json();
         // Save results to localStorage
@@ -122,9 +122,7 @@ function displayData(data) {
                     <p class="pTrack">Gleis: ${startToNearest.from_platform || '-'}</p>
                     <p class="time">${formatTime(startToNearest.connections[0].departure)}</p>
                 </div>
-                <svg width="308" height="2" viewBox="0 0 308 2" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <line x1="0" y1="1" x2="308" y2="1" stroke="black" stroke-width="2"/>
-                </svg>
+                <hr>
                 <div class="arrival">
                     <p>${nearestToEnd.to}</p>
                     <p class="pTrack">Gleis: ${nearestToEnd.to_platform || '-'}</p>
