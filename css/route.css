@@ -13,6 +13,7 @@
 header {
     margin-bottom: 30px;
 }
+
 .back{
     font-family: "Inter", sans-serif;
     font-optical-sizing: auto;
@@ -25,9 +26,6 @@ header {
     margin: 26px 34px;
 }
 
-
-
-
 #route-details {
     display: flex;
     flex-direction: column;
@@ -38,15 +36,13 @@ header {
     border-radius: 10px;
 }
 
-
-
 .trip-card {
     display: grid;
     grid-row-gap: 5px;
     grid-column-gap: 5px;
-    grid-template-columns: 2fr 1fr 2fr 2fr;
+    grid-template-columns: 2fr 1fr 5fr 3fr;
     grid-template-rows: 1fr 1fr 1fr;
-
+    min-height: 150px;
     background-color: var(--offwhite);
     margin: 16px 16px;
     border-radius: 10px;
@@ -59,10 +55,13 @@ header {
 
 .arrivalTime {
     grid-area: 3 / 1 / 4 / 2;
+    align-self: end;
 }
 
 .line {
     grid-area: 1 / 2 / 4 / 3;
+    border-left: 2px solid black;
+    height: 100%;
 }
 
 .from {
@@ -71,18 +70,23 @@ header {
 
 .to {
     grid-area: 3 / 3 / 4 / 4;
+    align-self: end;
 }
 
 .type {
     grid-area: 2 / 3 / 3 / 4;
+    align-self: center;
 }
 
 .departurePlatform {
     grid-area: 1 / 4 / 2 / 5;
+    text-align: right;
 }
 
 .arrivalPlatform {
     grid-area: 3 / 4 / 4 / 5;
+    text-align: right;
+    align-self: end;
 }
 
 h1 {

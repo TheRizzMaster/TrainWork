@@ -87,7 +87,7 @@ async function handleInput(event, element, suggestionsElement) {
             suggestionsElement.appendChild(suggestionItem);
         });
 
-        // Ensure the suggestions are positioned right below the input field
+        // Positionierung der Vorschläge
         const rect = element.getBoundingClientRect();
         suggestionsElement.style.top = `${rect.bottom + window.scrollY}px`;
         suggestionsElement.style.left = `${rect.left + window.scrollX}px`;
@@ -97,6 +97,7 @@ async function handleInput(event, element, suggestionsElement) {
     }
 }
 
+// Format time string to HH:MM
 function formatTime(timeString) {
     const date = new Date(timeString);
     return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
@@ -119,8 +120,8 @@ function displayData(data) {
 
         routeContainer.innerHTML = `
             <div class="title">
-                <p>${startToNearest.from} → ${nearestToEnd.to}</p>
-                <p>${startToNearest.type.join(", ")}</p>
+                <p class="title-from-to">${startToNearest.from} → ${nearestToEnd.to}</p>
+                <p class="title-type">${startToNearest.type.join(", ")}</p>
             </div>
             <div class="route-info">
                 <div class="departure">

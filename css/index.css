@@ -141,9 +141,21 @@ label {
     font-weight: 400;
     font-style: normal;
     font-size: 24px;
-    text-align: center;
+    /* text-align: center; */
     margin-bottom: 20px;
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
+}
+
+.title-from-to {
+    text-align: left;
+    width: 65%;
+    font-size: 16px;
+}
+
+.title-type {
+    text-align: right;
+    width: 25%;
+    font-size: 16px;
 }
 
 .route-info {
@@ -170,6 +182,10 @@ label {
     font-weight: 800;
 }
 
+.arrival {
+    align-items: end;
+}
+
 
 .route {
     background-color: var(--lightgray);
@@ -190,7 +206,7 @@ label {
     color: #333;
 }
 
-.route p {
+.route-info p {
     font-size: 16px;
     margin: 5px 0;
     width: 40%;

@@ -48,16 +48,13 @@ function displayRouteDetails(route) {
 
         tripCard.innerHTML = `
         <p class="departureTime"><strong>${departureTime}</strong></p>
-        <p class="arrivalTime"><strong>${arrivalTime}</strong></p>
-        <svg class="line" width="2" height="119" viewBox="0 0 2 119" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M1 0L0.999995 119" stroke="black" stroke-width="2"/>
-</svg>
-
+        <p class="arrivalTime">${arrivalTime}</p>
+        <div class="line"></div>
         <p class="from"><strong>${trip.from}</strong></p>
-        <p class="to"><strong>${trip.to}</strong></p>
+        <p class="to">${trip.to}</p>
         <p class="type"><strong>${trip.type || '-'}</strong></p>
-        <p class="departurePlatform"><strong>Gleis:</strong> ${trip.from_platform || '-'}</p>
-        <p class="arrivalPlatform"><strong>Gleis:</strong> ${trip.to_platform || '-'}</p>
+        <p class="departurePlatform"><strong>Gleis: ${trip.from_platform || '-'}</strong></p>
+        <p class="arrivalPlatform">Gleis: ${trip.to_platform || '-'}</p>
     `;
 
         container.appendChild(tripCard);
