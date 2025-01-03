@@ -86,6 +86,12 @@ async function handleInput(event, element, suggestionsElement) {
             });
             suggestionsElement.appendChild(suggestionItem);
         });
+
+        // Ensure the suggestions are positioned right below the input field
+        const rect = element.getBoundingClientRect();
+        suggestionsElement.style.top = `${rect.bottom + window.scrollY}px`;
+        suggestionsElement.style.left = `${rect.left + window.scrollX}px`;
+        suggestionsElement.style.width = `${rect.width}px`;
     } else {
         suggestionsElement.innerHTML = '';
     }
