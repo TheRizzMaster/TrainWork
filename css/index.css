@@ -35,6 +35,14 @@ label {
     z-index: 10;
 }
 
+#loading-text {
+    text-align: center;
+    font-family: "Inter", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
 /* @media screen and (min-width: 500px) {
     #arrow {
         top: 190px;

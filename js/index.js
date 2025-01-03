@@ -7,6 +7,7 @@ const form = document.getElementById('trainForm'); // Get the form element
 const departureTimeInput = document.getElementById('departureTime');
 const arrivalTimeInput = document.getElementById('arrivalTime');
 const container = document.getElementById('routes-container');
+let loading = false;
 
 console.log("Combined script loaded");
 
@@ -44,10 +45,12 @@ form.addEventListener('submit', async (event) => {
     const arrivalTimeValue = formData.get('arrivalTime');
     
     try {
+        await playLoadingAnimation();
         const url = `https://trainwork.app/api/fetchRoutes.php?Abfahrtsort=${encodeURIComponent(departureValue)}&Ankunftsort=${encodeURIComponent(destinationValue)}&Abfahrtszeit=${encodeURIComponent(departureTimeValue)}&Ankunftszeit=${encodeURIComponent(arrivalTimeValue)}&max_waiting_time=15`;
         const response = await fetch(url, { method: 'GET' });
         const result = await response.json();
         // Save results to localStorage
+        stopLoadingAnimation();
         localStorage.setItem('routeResults', JSON.stringify(result));
         displayData(result);
         
@@ -145,4 +148,102 @@ function displayData(data) {
 const savedResults = localStorage.getItem('routeResults');
 if (savedResults) {
     displayData(JSON.parse(savedResults));
+}
+
+let loadingTextInterval = null;
+
+// List of messages to display while loading
+const loadingMessages = [
+    "Algorithmus sucht die perfekte Route...",
+    "Optimierung des Gleisnetzwerks läuft...",
+    "Rekursion im Schienennetz gestartet...",
+    "Kürzeste Route wird berechnet...",
+    "Dijkstra kämpft mit den Gleisen...",
+    "Prim-Algorithmus legt Weichen...",
+    "A* findet den schnellsten Bahnhof...",
+    "Schienenbaum wird sortiert...",
+    "Algorithmus löst Gleiskonflikte...",
+    "Route wird mit KI vorhergesagt...",
+    "Virtuelle Schienenpfade werden geprüft...",
+    "Deep Learning für Weichenstellung...",
+    "Fehlende Gleisdaten werden interpoliert...",
+    "Künstliche Intelligenz trainiert Züge...",
+    "Neuralnetz sucht nach dem besten Halt...",
+    "Algorithmus wartet auf freies Gleis...",
+    "Gleisdatenbank wird indexiert...",
+    "Quantenalgorithmus denkt nach...",
+    "Routenmatrix wird aktualisiert...",
+    "Random Walk durch das Schienennetz...",
+    "Heuristik sucht optimale Verbindung...",
+    "Fahrplan wird durch KI angepasst...",
+    "Komplexitätsanalyse der Route läuft...",
+    "Algorithmus iteriert durch Waggons...",
+    "Pfadfindung im Gleis-Labyrinth...",
+    "Optimierungsproblem wird gelöst...",
+    "Algorithmus debuggt virtuelle Züge...",
+    "Datenstruktur für Schienen wird geordnet...",
+    "Algorithmus minimiert Verspätungen...",
+    "Algorithmus schläft noch... Kaffee wird gekocht!",
+    "Dijkstra sagt: 'Bin gleich fertig!'... Vielleicht.",
+    "KI sucht die Route... und nebenbei Katzenvideos.",
+    "A* findet die Route, aber nur in der Theorie...",
+    "Prim schiebt noch ein paar Gleise hin und her...",
+    "Algorithmus fragt: 'Muss es wirklich heute sein?'",
+    "Quantencomputer sucht... vielleicht in einer anderen Dimension.",
+    "Routenberechnung bei 99%... oder doch erst bei 9%?",
+    "Neuralnetz denkt über die Zugfarbe nach...",
+    "Gleisdatenbank sagt: 'Keine Ahnung, frag später nochmal.'",
+    "Algorithmus schlägt vor: 'Kann der Zug nicht einfach fliegen?'",
+    "Schienenbaum hat sich verhakt... Bitte Geduld!",
+    "Dijkstra hat sich verlaufen... Backup ruft an.",
+    "KI simuliert... 'Was wäre, wenn der Zug ein Flugzeug wäre?'",
+    "Pfadfindung kaputt... 'Haben wir überhaupt einen Pfad?'",
+    "Algorithmus in der Sackgasse... Rückwärtsgang aktiv.",
+    "Virtuelle Lok sucht WLAN... 'Kein Empfang im Tunnel!'",
+    "Rekursion läuft... und läuft... und läuft...",
+    "KI rechnet nach... 'Mist, die Strecke ist rund!'",
+    "Algorithmus fragt: 'Muss ich wirklich ALLE Weichen prüfen?'",
+    "Heuristik hängt bei der Frage: 'Links oder rechts?'",
+    "Routenoptimierung entdeckt ein Gleis nach Hogwarts...",
+    "Algorithmus debuggt... 'Warum sind Gleise dreieckig?'",
+    "Virtuelles Stellwerk fragt: 'Was ist ein Zug?'",
+    "Neuralnetz war hungrig... Alle Daten sind weg.",
+    "Schienenmatrix explodiert... Sorry, falscher Algorithmus.",
+    "KI sucht noch... hat aber Tinder geöffnet.",
+    "Algorithmus wartet... auf den nächsten Algorithmus.",
+    "Route wird berechnet... irgendwann. Versprochen.",
+    "Lokführer KI sagt: 'Ich fahre lieber Bus.'"
+  ];
+  
+  
+
+
+// Loading animation
+async function playLoadingAnimation() {
+    loading = true;
+    form.querySelectorAll('input').forEach(input => input.disabled = true);
+    form.querySelector('button').disabled = true;
+    container.innerHTML = `
+    <dotlottie-player style="margin: 0 auto;" src="https://lottie.host/2f527072-35fd-47e8-8fdc-cf237f7299c8/CMQYlzKPHt.json" background="transparent" speed="1.5" style="width: 300px; height: 300px" direction="1" playMode="normal" loop autoplay></dotlottie-player>
+    <p id="loading-text"></p>
+    `;
+
+    const loadingText = document.getElementById('loading-text');
+    let currentIndex = 0;
+
+    // Set the initial text
+    loadingText.textContent = loadingMessages[currentIndex];
+
+    // Every 3 seconds, update the text
+    loadingTextInterval = setInterval(() => {
+      currentIndex = (currentIndex + 1) % loadingMessages.length;
+      loadingText.textContent = loadingMessages[currentIndex];
+    }, 3000);
+}
+
+function stopLoadingAnimation() {
+    loading = false;
+    container.innerHTML = '';
+    form.querySelector('button').disabled = false;
+    form.querySelectorAll('input').forEach(input => input.disabled = false);
 }
