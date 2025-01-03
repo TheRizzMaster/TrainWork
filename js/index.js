@@ -45,7 +45,7 @@ form.addEventListener('submit', async (event) => {
     
     try {
         const url = `https://trainwork.app/api/fetchRoutes.php?Abfahrtsort=${encodeURIComponent(departureValue)}&Ankunftsort=${encodeURIComponent(destinationValue)}&Abfahrtszeit=${encodeURIComponent(departureTimeValue)}&Ankunftszeit=${encodeURIComponent(arrivalTimeValue)}&max_waiting_time=15`;
-        const response = await fetch(url);
+        const response = await fetch(url, { method: 'GET' });
         const result = await response.json();
         // Save results to localStorage
         localStorage.setItem('routeResults', JSON.stringify(result));
