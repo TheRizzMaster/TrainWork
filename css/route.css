@@ -103,7 +103,7 @@ strong {
 }
 
 
-p {
+.trip-card p {
     font-family: "Inter", sans-serif;
     font-optical-sizing: auto;
     font-weight: 400;
