@@ -1,9 +1,9 @@
 const params = new URLSearchParams(window.location.search);
 const routeIndex = params.get('route');
 
-function getRouteDataFromLocalStorage() {
+function getRouteDataFromsessionStorage() {
     try {
-        const savedData = localStorage.getItem('routeResults');
+        const savedData = sessionStorage.getItem('routeResults');
         if (savedData) {
             const data = JSON.parse(savedData);
             const route = data.best_routes[routeIndex];
@@ -19,10 +19,10 @@ function getRouteDataFromLocalStorage() {
 
             displayRouteDetails(completeRoute);
         } else {
-            console.error("No route data found in localStorage.");
+            console.error("No route data found in sessionStorage.");
         }
     } catch (error) {
-        console.error("Failed to fetch route details from localStorage", error);
+        console.error("Failed to fetch route details from sessionStorage", error);
     }
 }
 
@@ -61,4 +61,4 @@ function displayRouteDetails(route) {
     });
 }
 
-getRouteDataFromLocalStorage();
+getRouteDataFromsessionStorage();

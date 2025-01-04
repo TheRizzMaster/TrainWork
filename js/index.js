@@ -49,9 +49,9 @@ form.addEventListener('submit', async (event) => {
         const url = `https://trainwork.app/api/fetchRoutes.php?Abfahrtsort=${encodeURIComponent(departureValue)}&Ankunftsort=${encodeURIComponent(destinationValue)}&Abfahrtszeit=${encodeURIComponent(departureTimeValue)}&Ankunftszeit=${encodeURIComponent(arrivalTimeValue)}&max_waiting_time=15`;
         const response = await fetch(url, { method: 'GET' });
         const result = await response.json();
-        // Save results to localStorage
+        // Save results to sessionStorage
         stopLoadingAnimation();
-        localStorage.setItem('routeResults', JSON.stringify(result));
+        sessionStorage.setItem('routeResults', JSON.stringify(result));
         displayData(result);
         
     } catch (error) {
@@ -109,7 +109,7 @@ function formatTime(timeString) {
 function displayData(data) {
     container.innerHTML = '';
     if (!data || !data.best_routes) {
-        container.innerHTML = '<p>No routes found.</p>';
+        container.innerHTML = '<p id="no-results">Keine passende Routen gefunden, versuche mehr Zeit einzuberechnen.<br>Oder vielleicht bist du mit der normalen Route der SBB schon zufrieden :)</p>';
         return;
     }
 
@@ -144,8 +144,8 @@ function displayData(data) {
     });
 }
 
-// Check for existing data in localStorage and display it
-const savedResults = localStorage.getItem('routeResults');
+// Check for existing data in sessionStorage and display it
+const savedResults = sessionStorage.getItem('routeResults');
 if (savedResults) {
     displayData(JSON.parse(savedResults));
 }
@@ -232,7 +232,10 @@ async function playLoadingAnimation() {
     let currentIndex = 0;
 
     // Set the initial text
-    loadingText.textContent = loadingMessages[currentIndex];
+    setTimeout(() => {
+        loadingText.textContent = loadingMessages[currentIndex];
+    }, 100);
+
 
     // Every 3 seconds, update the text
     loadingTextInterval = setInterval(() => {
