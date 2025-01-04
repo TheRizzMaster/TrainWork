@@ -7,6 +7,7 @@ const form = document.getElementById('trainForm'); // Get the form element
 const departureTimeInput = document.getElementById('departureTime');
 const arrivalTimeInput = document.getElementById('arrivalTime');
 const container = document.getElementById('routes-container');
+const loadingContainer = document.getElementById('loading-container')
 let loading = false;
 
 console.log("Combined script loaded");
@@ -213,7 +214,7 @@ const loadingMessages = [
     "Algorithmus wartet... auf den nächsten Algorithmus.",
     "Route wird berechnet... irgendwann. Versprochen.",
     "Lokführer KI sagt: 'Ich fahre lieber Bus.'"
-  ];
+];
   
   
 
@@ -221,12 +222,10 @@ const loadingMessages = [
 // Loading animation
 async function playLoadingAnimation() {
     loading = true;
+    container.innerHTML = '';
     form.querySelectorAll('input').forEach(input => input.disabled = true);
     form.querySelector('button').disabled = true;
-    container.innerHTML = `
-    <dotlottie-player style="margin: 0 auto;" src="https://lottie.host/2f527072-35fd-47e8-8fdc-cf237f7299c8/CMQYlzKPHt.json" background="transparent" speed="1.5" style="width: 300px; height: 300px" direction="1" playMode="normal" loop autoplay></dotlottie-player>
-    <p id="loading-text"></p>
-    `;
+    loadingContainer.style.display = 'block';
 
     const loadingText = document.getElementById('loading-text');
     let currentIndex = 0;
@@ -246,7 +245,7 @@ async function playLoadingAnimation() {
 
 function stopLoadingAnimation() {
     loading = false;
-    container.innerHTML = '';
+    loadingContainer.style.display = 'none';
     form.querySelector('button').disabled = false;
     form.querySelectorAll('input').forEach(input => input.disabled = false);
 }

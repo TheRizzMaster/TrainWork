@@ -35,12 +35,19 @@ label {
     z-index: 10;
 }
 
+#loading-container {
+    margin-top: -50px;
+    margin-bottom: 50px;
+}
+
 #loading-text {
     text-align: center;
     font-family: "Inter", sans-serif;
     font-size: 16px;
     font-weight: 400;
     text-transform: uppercase;
+    max-width: 80vw;
+    margin: 0 auto;
 }
 
 #no-results {
