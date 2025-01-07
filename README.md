@@ -42,7 +42,7 @@ Um eine produktionsreife Version dieser App erzielen zu können wären noch eini
 - Standardisierung der Fahrplan Daten (GTFS)
 - Implementierung von Nice to haves wie Live Daten (Gleisänderungen, Service alerts…)
 
-Abschliessend lässt sich sagen,
+Abschliessend lässt sich sagen, dass die Arbeit an der App nicht nur unsere technischen Fähigkeiten verbessert hat, sondern auch die Bedeutung von Teamarbeit, iterativer Entwicklung und präziser Planung hervorbrachte.
 
 ### Siro
 
